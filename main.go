@@ -82,6 +82,13 @@ func speedTestHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Render the HTML response with the download speed
+	// The code `data := struct {
+	// 		DownloadSpeed float64
+	// 	}{
+	// 		DownloadSpeed: downloadSpeed,
+	// 	}` is creating a struct variable named `data` with a single field `DownloadSpeed` of type
+	// `float64`. It is then assigning the value of the `downloadSpeed` variable to the `DownloadSpeed`
+	// field of the `data` struct.
 	data := struct {
 		DownloadSpeed float64
 	}{
@@ -104,6 +111,7 @@ func main() {
 
 	// Start the HTTP server
 	if err := http.ListenAndServe(":8080", nil); err != nil {
+
 		fmt.Printf("Error: %v\n", err)
 	}
 }
